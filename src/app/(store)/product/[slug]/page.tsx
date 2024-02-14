@@ -16,6 +16,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+/**
+ * 1. Executar a aplicação para deixar api no ar
+ * 2. Gerar build e ver que as páginas fizeram o SSG
+ * 3. Desligar a aplicação para parar a api
+ * 4. Rodar yarn start para rodar o projeto buildado e não o dev
+ * 5. Verificar que os produtos carregam mesmo sem a req na api
+ */
+export async function generateStaticParams() {
+  const response = await api('/products/featured')
+  const products: Product[] = await response.json()
+
+  return products.map((product) => ({ slug: product.slug }))
+}
+
 async function getProduct(slug: string): Promise<Product> {
   const response = await api(`/products/${slug}`, {
     next: {
