@@ -4,7 +4,12 @@ import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
-export const metadata: Metadata = { title: 'devstore' }
+export const metadata: Metadata = {
+  title: {
+    template: 'devstore | %s',
+    default: 'devstore',
+  },
+}
 
 export type LayoutType = Readonly<{
   children: React.ReactNode
