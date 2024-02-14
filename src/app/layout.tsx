@@ -6,14 +6,14 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = { title: 'devstore' }
 
-type Layout = Readonly<{
+export type LayoutType = Readonly<{
   children: React.ReactNode
 }>
 
-export default function RootLayout({ children }: Layout) {
+export default function RootLayout({ children }: LayoutType) {
   return (
-    <html lang="pt-BR">
-      <body className={inter.variable}>{children}</body>
+    <html lang="pt-BR" className={inter.variable}>
+      <body>{children}</body>
     </html>
   )
 }
