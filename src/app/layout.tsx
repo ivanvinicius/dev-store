@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     template: 'devstore | %s',
     default: 'devstore',
   },
+  metadataBase: new URL('http://localhost:3000'),
 }
 
 export type LayoutType = Readonly<{
