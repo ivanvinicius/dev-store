@@ -6,7 +6,7 @@ import { FormEvent } from 'react'
 
 export function SearchProductsForm() {
   const router = useRouter()
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams() // Pega o parâmetro URL, seta valor no input
   const query = searchParams.get('q')
 
   function handleSearch(event: FormEvent<HTMLFormElement>) {
